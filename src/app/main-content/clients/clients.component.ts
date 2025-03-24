@@ -11,9 +11,11 @@ import { trigger, transition, style, animate } from '@angular/animations';
     trigger('clientsTextAnimation', [
       transition(':enter', [
         style({
+          transform: 'translateY(-35%)',
           opacity: 0
         }),
-        animate('500ms ease-in', style({
+        animate('1s ease-in-out', style({
+          transform: 'translateY(0)',
           opacity: 1
         }))
       ])
