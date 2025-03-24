@@ -1,0 +1,45 @@
+.clients-container {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.clients-text-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    h3{
+        font-size: 32px;
+        font-weight: 700;
+        color: #4d4d4d;
+    }
+    p{
+        font-size: 16px;
+        font-weight: 400;
+        color: #4d4d4d;
+    }
+}
+
+.clients-logo-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img{
+        cursor: pointer;
+        padding: 10px;
+        transition: all 0.2s ease;
+        border-bottom: 4px solid transparent;
+        &:hover{
+            transform: translateY(-8px);
+            border-bottom: 4px solid #52aa4d;
+        }
+    }
+}
+

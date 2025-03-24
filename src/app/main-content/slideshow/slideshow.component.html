@@ -1,0 +1,18 @@
+<div class="slideshow-content">
+    <div class="slideshow-container" *ngIf="animationState" @slideAnimationleft>
+        <h2>{{ slides[currentSlide].title }}</h2>
+        <h3>{{ slides[currentSlide].subtitle }}</h3>
+        <p>{{ slides[currentSlide].description }}</p>
+        <div class="slideshow-button-container">
+            <button class="slideshow-button">{{ slides[currentSlide].button }}</button>
+        </div>
+    </div>
+
+    <div class="slideshow-image-container" *ngIf="animationState" @slideAnimationright>
+        <img [src]="slides[currentSlide].image" [alt]="slides[currentSlide].title">
+    </div>
+
+    <div class="slideshow-dots-container">
+        <div class="slideshow-dot" [class.active]="i === currentSlide" (click)="startSlider(i)" *ngFor="let slide of slides; let i = index"></div>
+    </div>
+</div>

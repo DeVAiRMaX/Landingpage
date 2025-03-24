@@ -1,0 +1,24 @@
+[
+    {
+      "image": "./img/slideshow/1.png",
+      "title": "Digitale Transformation",
+      "subtitle": "Erfolgsgeschichten",
+      "description": "Wie Unternehmen durch digitale Lösungen ihr Wachstum beschleunigen",
+      "button": "Mehr erfahren"
+    },
+    {
+      "image": "./img/slideshow/1.png",
+      "title": "Innovation & Technologie",
+      "subtitle": "Zukunftstrends",
+      "description": "Entdecken Sie die neuesten Technologien für Ihr Unternehmenswachstum",
+      "button": "Jetzt entdecken"
+    },
+    {
+      "image": "./img/slideshow/1.png",
+      "title": "Nachhaltige Entwicklung",
+      "subtitle": "Grüne Lösungen",
+      "description": "Wie Nachhaltigkeit und Geschäftserfolg Hand in Hand gehen",
+      "button": "Loslegen"
+    }
+]
+
