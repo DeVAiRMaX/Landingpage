@@ -12,7 +12,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
     trigger('slideAnimationleft', [
       transition(':enter', [
         style({ 
-          transform: 'translateX(-50%)',
+          transform: 'translateX(-20%)',
           opacity: 0 
         }),
         animate('500ms ease-in', style({ 
@@ -24,7 +24,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
     trigger('slideAnimationright', [
       transition(':enter', [
         style({ 
-          transform: 'translateX(50%)',
+          transform: 'translateX(20%)',
           opacity: 0 
         }),
         animate('500ms ease-in', style({ 
