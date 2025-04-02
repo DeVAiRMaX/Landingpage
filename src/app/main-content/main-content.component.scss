@@ -22,6 +22,7 @@
     flex-direction: column;
     gap: 40px;
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .clients{
@@ -54,4 +55,20 @@
     display: flex;
     justify-content: center;
     background-color: #f5f7fa;
+}
+
+.caring-marketing{
+    width: 100%;
+    // height: 506px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.footer{
+    width: 100%;
+    height: 328px;
+    display: flex;
+    justify-content: center;
+    background-color: #263238;
 }

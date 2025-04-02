@@ -37,8 +37,9 @@
 }
 
 .helping-right-top {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
 }
 
 .helping-right-bottom {
@@ -49,7 +50,7 @@
 .helping-right-card {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
