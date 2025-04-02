@@ -1,74 +1,89 @@
-.main-content{
-    width: 100vw;
-    max-width: 100%;
+.main-content {
+  width: 100vw;
+  max-width: 100%;
 }
 
-.header{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: #f5f7fa;
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f7fa;
 }
 
-.slideshow{
-    width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    background-color: #f5f7fa;
+.slideshow {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f7fa;
 }
-.main-container{
-    display: flex;
-    flex-direction: column;
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.clients {
+  width: 100%;
+  height: 190px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.description {
+  width: 100%;
+  height: 416px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.info {
+  width: 100%;
+  height: 433px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.helping {
+  width: 100%;
+  height: 288px;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f7fa;
+}
+
+.caring-marketing {
+  width: 100%;
+  // height: 506px;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.footer {
+  width: 100%;
+  height: 328px;
+  display: flex;
+  justify-content: center;
+  background-color: #263238;
+}
+
+@media screen and (max-width: 1220px) {
+  .header {
+    background-color: transparent;
+  }
+  .main-container[_ngcontent-ng-c2422640495] {
     gap: 40px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.clients{
-    width: 100%;
-    height: 190px;
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.description{
-    width: 100%;
-    height: 416px;
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.info{
-    width: 100%;
-    height: 433px;
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.helping{
-    width: 100%;
-    height: 288px;
-    display: flex;
-    justify-content: center;
-    background-color: #f5f7fa;
-}
-
-.caring-marketing{
-    width: 100%;
-    // height: 506px;
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.footer{
-    width: 100%;
-    height: 328px;
-    display: flex;
-    justify-content: center;
-    background-color: #263238;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .slideshow {
+    display: none;
+    height: auto;
+  }
 }

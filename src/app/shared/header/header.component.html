@@ -15,4 +15,22 @@
     <button class="login-btn">Login</button>
     <button class="signup-btn">Sign up</button>
   </div>
+  <mat-icon
+    class="menu-responsiv-icon"
+    (click)="showResponsiveMenu = !showResponsiveMenu"
+    [class.active]="showResponsiveMenu"
+  >
+    {{ showResponsiveMenu ? "arrow_forward_ios" : "menu" }}
+    </mat-icon
+  >
+</div>
+
+<div class="responsiv-menu-container" *ngIf="showResponsiveMenu" @responsiveMenuAnimation >
+  <ul>
+    <li>Home</li>
+    <li>Service</li>
+    <li>Feature</li>
+    <li>Testimonial</li>
+    <li>FAQ</li>
+  </ul>
 </div>
