@@ -1,14 +1,14 @@
 <div class="main-content">
   <div>
-  <app-header class="header"></app-header>
-  <app-slideshow class="slideshow"></app-slideshow>
-  <div class="main-container">
-    <app-clients class="clients"></app-clients>
-    <app-description class="description"></app-description>
-    <app-info class="info"></app-info>
-    <app-helping class="helping"></app-helping>
-    <app-caring-marketing class="caring-marketing"></app-caring-marketing>
+    <app-header class="header"></app-header>
+    <app-slideshow class="slideshow"></app-slideshow>
+    <div class="main-container">
+      <app-clients class="clients" #client [@scrollAnimation]="scrollAnimationClient"></app-clients>
+      <app-description #description class="description" [@scrollAnimation]="scrollAnimationDescription"></app-description>
+      <app-info #info class="info" [@scrollAnimation]="scrollAnimationInfo"></app-info>
+      <app-helping #helping class="helping" [@scrollAnimation]="scrollAnimationHelping"></app-helping>
+      <app-caring-marketing #caringMarketing class="caring-marketing" [@scrollAnimation]="scrollAnimationCaringMarketing"></app-caring-marketing>
+    </div>
+    <app-footer class="footer"></app-footer>
   </div>
-  <app-footer class="footer"></app-footer>
-</div>
 </div>

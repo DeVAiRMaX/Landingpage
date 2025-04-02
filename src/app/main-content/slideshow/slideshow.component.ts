@@ -32,6 +32,18 @@ import { trigger, transition, style, animate } from '@angular/animations';
           opacity: 1 
         }))
       ]),  
+    ]),
+    trigger('slideDotAnimation', [
+      transition(':enter', [
+        style({ 
+          transform: 'scale(0)',
+          opacity: 0 
+        }),
+        animate('500ms ease-in', style({ 
+          transform: 'scale(1)',
+          opacity: 1 
+        }))
+      ]),  
     ])
   ]
 })
