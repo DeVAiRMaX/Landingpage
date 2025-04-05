@@ -14,18 +14,18 @@
 }
 
 .info-right {
-  width:   55%;
+  width: 55%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
   h2 {
-    font-size: 32px;
+    font-size: clamp(1rem, 8vw, 2rem);
     font-weight: 700;
     color: #4d4d4d;
   }
   p {
-    font-size: 16px;
+    font-size: clamp(0.9rem, 2.9vw, 1rem);
     color: #637381;
   }
   button {
@@ -40,5 +40,20 @@
     &:hover {
       background-color: #45823e;
     }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .info-container {
+    flex-direction: column;
+    img {
+      display: none;
+    }
+  }
+  .info-right {
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 }

@@ -40,12 +40,33 @@ $nexcent-theme: mat.define-theme((
     box-sizing: border-box;
 }
 
-body{
-
-}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 button{
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #52aa4d transparent;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #52aa4d;
+  border-radius: 9999px; 
+  border: 1px solid transparent; 
+}
+
+::-webkit-scrollbar-button {
+  display: none;
 }

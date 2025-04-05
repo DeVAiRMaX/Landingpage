@@ -14,13 +14,13 @@
   gap: 12px;
   h2 {
     max-width: 542px;
-    font-size: 32px;
+    font-size: clamp(1rem, 8vw, 2rem);
     font-weight: 700;
     color: #4d4d4d;
     text-align: center;
   }
   p {
-    font-size: 16px;
+    font-size: clamp(0.9rem, 2.9vw, 1rem);
     color: #637381;
   }
 }
@@ -32,6 +32,7 @@
   justify-content: space-around;
   gap: 16px;
   mat-card {
+    min-width: 250px;
     min-height: 280px;
     background-color: #fff;
     width: 299px;
@@ -66,6 +67,18 @@
         font-size: 16px;
         color: #637381;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1220px) {
+  .description-body {
+    overflow: auto;
+  }
+  .description-body {
+    padding: 24px;
+    mat-card {
+      max-height: 250px;
     }
   }
 }
