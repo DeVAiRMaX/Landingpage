@@ -9,6 +9,17 @@ import { CaringMarketingComponent } from './caring-marketing/caring-marketing.co
 import { FooterComponent } from './footer/footer.component';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
+// AnimationKey definiert die zulässigen Animationseigenschaften
+type AnimationKey =
+  | 'scrollAnimationDescription'
+  | 'scrollAnimationInfo'
+  | 'scrollAnimationHelping'
+  | 'scrollAnimationCaringMarketing'
+  | 'scrollAnimationClient'
+  | 'scrollAnimationSlider'
+  | 'scrollAnimationFooter'
+  | 'scrollAnimationHeader';
+
 @Component({
   selector: 'app-main-content',
   standalone: true,
@@ -28,72 +39,54 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     trigger('scrollAnimation', [
       state('hidden', style({ opacity: 0 })),
       state('visible', style({ opacity: 1 })),
-
-      transition('hidden => visible', animate('750ms ease-in-out'))
+      transition('hidden <=> visible', animate('750ms ease-in-out'))
     ])
   ]
 })
 export class MainContentComponent implements AfterViewInit {
 
+  scrollAnimationHeader: 'hidden' | 'visible' = 'hidden';
   scrollAnimationDescription: 'hidden' | 'visible' = 'hidden';
   scrollAnimationInfo: 'hidden' | 'visible' = 'hidden';
   scrollAnimationHelping: 'hidden' | 'visible' = 'hidden';
   scrollAnimationCaringMarketing: 'hidden' | 'visible' = 'hidden';
   scrollAnimationClient: 'hidden' | 'visible' = 'hidden';
+  scrollAnimationSlider: 'hidden' | 'visible' = 'hidden';
+  scrollAnimationFooter: 'hidden' | 'visible' = 'hidden';
 
+  @ViewChild('header', { static: true, read: ElementRef }) headerElement!: ElementRef;
   @ViewChild('description', { static: true, read: ElementRef }) descriptionElement!: ElementRef;
   @ViewChild('info', { static: true, read: ElementRef }) infoElement!: ElementRef;
   @ViewChild('helping', { static: true, read: ElementRef }) helpingElement!: ElementRef;
   @ViewChild('caringMarketing', { static: true, read: ElementRef }) caringMarketingElement!: ElementRef;
   @ViewChild('client', { static: true, read: ElementRef }) clientElement!: ElementRef;
+  @ViewChild('slider', { static: true, read: ElementRef }) sliderElement!: ElementRef;
+  @ViewChild('footer', { static: true, read: ElementRef }) footerElement!: ElementRef;
 
   ngAfterViewInit(): void {
-    const observer = new IntersectionObserver((entries, obs) => {
+    // Array mit Konfigurationen – die Property-Werte werden als AnimationKey gecastet
+    const configs: { element: HTMLElement; property: AnimationKey }[] = [
+      { element: this.headerElement?.nativeElement, property: 'scrollAnimationHeader' as AnimationKey },
+      { element: this.descriptionElement?.nativeElement, property: 'scrollAnimationDescription' as AnimationKey },
+      { element: this.infoElement?.nativeElement, property: 'scrollAnimationInfo' as AnimationKey },
+      { element: this.helpingElement?.nativeElement, property: 'scrollAnimationHelping' as AnimationKey },
+      { element: this.caringMarketingElement?.nativeElement, property: 'scrollAnimationCaringMarketing' as AnimationKey },
+      { element: this.clientElement?.nativeElement, property: 'scrollAnimationClient' as AnimationKey },
+      { element: this.sliderElement?.nativeElement, property: 'scrollAnimationSlider' as AnimationKey },
+      { element: this.footerElement?.nativeElement, property: 'scrollAnimationFooter' as AnimationKey },
+    ].filter(c => !!c.element);
+
+    // Observer, der den Zustand der Animation anhand der Sichtbarkeit ändert
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (entry.target === this.descriptionElement.nativeElement && this.scrollAnimationDescription !== 'visible') {
-            this.scrollAnimationDescription = 'visible';
-            console.log('Description sichtbar');
-            obs.unobserve(entry.target);
-          }
-          if (entry.target === this.infoElement.nativeElement && this.scrollAnimationInfo !== 'visible') {
-            this.scrollAnimationInfo = 'visible';
-            console.log('Info sichtbar');
-            obs.unobserve(entry.target);
-          }
-          if (entry.target === this.helpingElement.nativeElement && this.scrollAnimationHelping !== 'visible') {
-            this.scrollAnimationHelping = 'visible';
-            console.log('Helping sichtbar');
-            obs.unobserve(entry.target);
-          }
-          if (entry.target === this.caringMarketingElement.nativeElement && this.scrollAnimationCaringMarketing !== 'visible') {
-            this.scrollAnimationCaringMarketing = 'visible';
-            console.log('Caring Marketing sichtbar');
-            obs.unobserve(entry.target);
-          }
-          if (entry.target === this.clientElement.nativeElement && this.scrollAnimationClient !== 'visible') {
-            this.scrollAnimationClient = 'visible';
-            console.log('Caring Marketing sichtbar');
-            obs.unobserve(entry.target);
-          }
+        const config = configs.find(c => c.element === entry.target);
+        if (config) {
+          this[config.property] = entry.isIntersecting ? 'visible' : 'hidden';
         }
       });
     }, { threshold: 0.5 });
 
-    if (this.descriptionElement?.nativeElement) {
-      observer.observe(this.descriptionElement.nativeElement);
-    }
-    if (this.infoElement?.nativeElement) {
-      observer.observe(this.infoElement.nativeElement);
-    }
-    if (this.helpingElement?.nativeElement) {
-      observer.observe(this.helpingElement.nativeElement);
-    }
-    if (this.caringMarketingElement?.nativeElement) {
-      observer.observe(this.caringMarketingElement.nativeElement);
-    }
-    if (this.clientElement?.nativeElement) {
-      observer.observe(this.clientElement.nativeElement);
-    }
+    // Alle konfigurierten Elemente beobachten
+    configs.forEach(c => c.element && observer.observe(c.element));
   }
 }

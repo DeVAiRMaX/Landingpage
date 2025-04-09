@@ -1,7 +1,7 @@
 <div class="main-content">
   <div>
-    <app-header class="header"></app-header>
-    <app-slideshow class="slideshow"></app-slideshow>
+    <app-header class="header" #header [@scrollAnimation]="scrollAnimationHeader"></app-header>
+    <app-slideshow class="slideshow" #slider [@scrollAnimation]="scrollAnimationSlider"></app-slideshow>
     <div class="main-container">
       <app-clients class="clients" #client [@scrollAnimation]="scrollAnimationClient"></app-clients>
       <app-description #description class="description" [@scrollAnimation]="scrollAnimationDescription"></app-description>
@@ -9,6 +9,6 @@
       <app-helping #helping class="helping" [@scrollAnimation]="scrollAnimationHelping"></app-helping>
       <app-caring-marketing #caringMarketing class="caring-marketing" [@scrollAnimation]="scrollAnimationCaringMarketing"></app-caring-marketing>
     </div>
-    <app-footer class="footer"></app-footer>
+    <app-footer class="footer" #footer [@scrollAnimation]="scrollAnimationFooter" ></app-footer>
   </div>
 </div>
