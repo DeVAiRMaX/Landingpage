@@ -13,6 +13,16 @@
   gap: 100px;
 }
 
+.footer-logo-container {
+  img {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
 .info-container {
 }
 
@@ -37,6 +47,10 @@
     color: #fff;
     text-align: center;
     text-decoration: none;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      color: #52aa4d;
+    }
   }
 }
 
@@ -67,9 +81,8 @@
     padding: 0 16px;
     gap: 32px;
     flex-direction: column;
-    align-items: center;
   }
   .info-container-body {
-    align-items: center;
+    align-items: flex-start;
   }
 }

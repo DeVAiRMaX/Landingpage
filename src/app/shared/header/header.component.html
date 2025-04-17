@@ -1,4 +1,4 @@
-<div class="header-content" @headerAnimation>
+<div class="header-content">
   <div class="logo-container">
     <img class="logo" src="./img/logo.png" alt="" />
   </div>
@@ -17,20 +17,45 @@
   </div>
   <mat-icon
     class="menu-responsiv-icon"
-    (click)="showResponsiveMenu = !showResponsiveMenu"
+    (click)="toggleResponsiveMenu()"
     [class.active]="showResponsiveMenu"
   >
     {{ showResponsiveMenu ? "arrow_forward_ios" : "menu" }}
-    </mat-icon
-  >
+  </mat-icon>
 </div>
 
-<div class="responsiv-menu-container" *ngIf="showResponsiveMenu" @responsiveMenuAnimation >
-  <ul>
-    <li>Home</li>
-    <li>Service</li>
-    <li>Feature</li>
-    <li>Testimonial</li>
-    <li>FAQ</li>
-  </ul>
+<div
+  class="responsiv-menu-container"
+  *ngIf="showResponsiveMenu"
+  @responsiveMenuAnimation
+>
+  <div class="menu-card">
+    <ul>
+      <li>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </li>
+      <li>
+        <mat-icon>build</mat-icon>
+        <span>Service</span>
+      </li>
+      <li>
+        <mat-icon>star</mat-icon>
+        <span>Feature</span>
+      </li>
+      <li>
+        <mat-icon>emoji_people</mat-icon>
+        <span>Testimonial</span>
+      </li>
+      <li>
+        <mat-icon>help_outline</mat-icon>
+        <span>FAQ</span>
+      </li>
+    </ul>
+    <div class="auth-buttons">
+      <button class="login">Login</button>
+      <button class="signup">Sign up</button>
+    </div>
+  </div>
 </div>
+

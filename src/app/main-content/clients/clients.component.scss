@@ -47,9 +47,11 @@
 @media screen and (max-width: 1220px) {
     .clients-logo-container {
         width: 100vw !important;
+        height: auto;
         padding: 4px 16px;
-        overflow: auto;
-        gap: 4px;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
 }
