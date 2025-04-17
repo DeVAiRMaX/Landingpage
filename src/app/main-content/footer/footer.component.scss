@@ -80,7 +80,8 @@
     width: 100%;
     padding: 0 16px;
     gap: 32px;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .info-container-body {
     align-items: flex-start;
