@@ -39,7 +39,7 @@ type AnimationKey =
     trigger('scrollAnimation', [
       state('hidden', style({ opacity: 0 })),
       state('visible', style({ opacity: 1 })),
-      transition('hidden <=> visible', animate('750ms ease-in-out'))
+      transition('hidden <=> visible', animate('500ms ease-in-out'))
     ])
   ]
 })
