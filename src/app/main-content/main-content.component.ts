@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { ClientsComponent } from './clients/clients.component';
@@ -8,6 +8,7 @@ import { HelpingComponent } from './helping/helping.component';
 import { CaringMarketingComponent } from './caring-marketing/caring-marketing.component';
 import { FooterComponent } from './footer/footer.component';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { SharedModule } from '../shared.module';
 
 // AnimationKey definiert die zulässigen Animationseigenschaften
 type AnimationKey =
@@ -37,13 +38,31 @@ type AnimationKey =
   styleUrls: ['./main-content.component.scss'],
   animations: [
     trigger('scrollAnimation', [
-      state('hidden', style({ opacity: 0 })),
-      state('visible', style({ opacity: 1 })),
+      state('hidden', style({
+        opacity: 0,
+        // transform: 'translateX(-3%)'
+      })),
+      state('visible', style({
+        opacity: 1,
+        // transform: 'translateX(0)'
+      })),
       transition('hidden <=> visible', animate('500ms ease-in-out'))
-    ])
+    ]),
+    trigger('loadAnimation', [
+      state('hidden', style({
+        opacity: 0,
+      })),
+      state('visible', style({
+        opacity: 1,
+      })),
+      transition('hidden <=> visible', animate('500ms ease-in-out'))
+    ]),
   ]
 })
 export class MainContentComponent implements AfterViewInit {
+
+  scrollProgress = 0;
+  isScrolling = false;
 
   scrollAnimationHeader: 'hidden' | 'visible' = 'hidden';
   scrollAnimationDescription: 'hidden' | 'visible' = 'hidden';
@@ -88,5 +107,13 @@ export class MainContentComponent implements AfterViewInit {
 
     // Alle konfigurierten Elemente beobachten
     configs.forEach(c => c.element && observer.observe(c.element));
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    this.scrollProgress = (scrollTop / docHeight) * 100;
+    this.isScrolling = scrollTop > 20;
   }
 }

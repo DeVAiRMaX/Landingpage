@@ -28,7 +28,6 @@
 
 .clients {
   width: 100%;
-  height: 190px;
   display: flex;
   justify-content: center;
   background-color: #fff;
@@ -84,5 +83,28 @@
     // display: none;
     height: auto;
   }
-  
+}
+
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background-color: transparent;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.progress-container.visible {
+  opacity: 1;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #52aa4d;
+  width: 0%;
+  transition: width 0.1s ease-out;
+  border-radius: 0 8px 8px 0;
 }

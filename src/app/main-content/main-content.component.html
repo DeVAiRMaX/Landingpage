@@ -1,7 +1,11 @@
+<div class="progress-container" [class.visible]="isScrolling">
+  <div class="progress-bar" [style.width.%]="scrollProgress"></div>
+</div>
+
 <div class="main-content">
   <div>
-    <app-header class="header" #header [@scrollAnimation]="scrollAnimationHeader"></app-header>
-    <app-slideshow class="slideshow" #slider [@scrollAnimation]="scrollAnimationSlider"></app-slideshow>
+    <app-header class="header" #header [@loadAnimation]="scrollAnimationHeader"></app-header>
+    <app-slideshow class="slideshow" #slider [@loadAnimation]="scrollAnimationSlider"></app-slideshow>
     <div class="main-container">
       <app-clients class="clients" #client [@scrollAnimation]="scrollAnimationClient"></app-clients>
       <app-description #description class="description" [@scrollAnimation]="scrollAnimationDescription"></app-description>
